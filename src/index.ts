@@ -38,7 +38,8 @@ const main = () => {
 
   const HUMIDITY_RANGE: DataRange = [30, 60];
   const TEMPURATURE_RANGE: DataRange = [30, 60];
-  const THERMAL_ARRAY_RANGE: DataRange = [30, 60];
+  const THERMAL_ARRAY_VALUE_RANGE: DataRange = [30, 60];
+  const THERMAL_ARRAY_SIZE = 24 * 32;
 
   const FILE_NAME = 'data.xlsx';
   const SHEET_NAME = 'SensorData';
@@ -51,7 +52,7 @@ const main = () => {
     const time = new Date(INITIAL_DATA_TIME.getTime() + DATA_INTERVAL * i);
     const humidity = randomNumber(...HUMIDITY_RANGE, 2);
     const tempurature = randomNumber(...TEMPURATURE_RANGE, 2);
-    const thermalArray = Array.from({ length: 24 * 32 }, () => randomNumber(...THERMAL_ARRAY_RANGE, 2));
+    const thermalArray = Array.from({ length: THERMAL_ARRAY_SIZE }, () => randomNumber(...THERMAL_ARRAY_VALUE_RANGE, 2));
 
     data.push({
       Time: time.toISOString().replace('T', ' ').replace(/\..+/, ''),
