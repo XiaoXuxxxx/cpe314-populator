@@ -70,11 +70,11 @@ const main = () => {
 
   const workbook = objectToWorkbook(data, ['Time', 'Humidity', 'Tempurature', 'ThermalArray'], SHEET_NAME);
 
-  if (!fs.existsSync('/output')) {
-    fs.mkdirSync('/output');
+  if (!fs.existsSync('./output')) {
+    fs.mkdirSync('./output');
   }
 
-  fs.writeFileSync(`/output/${FILE_NAME}`, xlsx.write(workbook, { type: 'buffer', bookType: 'xlsx' }));
+  fs.writeFileSync(`./output/${FILE_NAME}`, xlsx.write(workbook, { type: 'buffer', bookType: 'xlsx' }));
   console.log(`[${new Date().toLocaleString()}] write to disk successfully!`)
 }
 
